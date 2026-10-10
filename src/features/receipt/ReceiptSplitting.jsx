@@ -54,6 +54,12 @@ export default function ReceiptSplitting() {
         : "";
 
 
+
+  function handleReset() {
+    setPeople([]);
+    setItems([]);
+    setStep(1);
+  }
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="md:w-[90%] lg:w-[80%] rounded-md border-2 border-gray-300 p-4 shadow-md grid grid-cols-1 gap-4">
@@ -66,7 +72,7 @@ export default function ReceiptSplitting() {
             <AddExpenses people={people} items={items} AddItem={handleAddItem} DeleteItem={handleDeleteItem} />
           )}
           {step === 3 && (
-            <Results people={people} items={items} />
+            <Results people={people} items={items} onReset={handleReset} />
           )}
         </Stepper>
       </div>
